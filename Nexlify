@@ -539,3 +539,24 @@ function Nexlify:Create(title, w, h)
     return window, tabs
 end
          
+-- Example usage
+local window, tabs = Nexlify:Create("Nexlify Menu", 340, 260)
+
+local main = tabs:Add("Main")
+
+Nexlify:Section(main, "Controls")
+
+Nexlify:Button(main, "Start", function()
+    Nexlify:Notify("Game started!")
+end)
+
+Nexlify:Toggle(main, "God Mode", false, function(v)
+    Nexlify:Notify("God Mode: " .. (v and "ON" or "OFF"))
+end)
+
+Nexlify:Slider(main, "Speed", 10, 100, 50, function(value)
+    Nexlify:Notify("Speed set to " .. value)  -- only triggers when you release
+end)
+
+Nexlify:Notify("UI loaded – minimize icon & slider fixed", 4)
+print("Nexlify UI ready!")
