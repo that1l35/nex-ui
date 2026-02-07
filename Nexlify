@@ -527,4 +527,15 @@ function Nexlify:Create(title, w, h)
                         callback(currentValue)
                         lastValue = currentValue
                     end
+                end
+            end
+        end)
+
+        update((default - min) / (max - min), false)
+
+        return frame
+    end
+
+    return window, tabs
+end
          
